@@ -1,0 +1,114 @@
+.App {
+  text-align: left;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 300% 300%;
+  animation: gradientBG 12s ease infinite;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* Shiny, Transparent Floating Bubbles */
+body::before,
+body::after,
+.bubble {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, 
+              rgba(255, 255, 255, 0.9) 0%, 
+              rgba(255, 255, 255, 0.3) 25%, 
+              rgba(255, 255, 255, 0.15) 50%, 
+              rgba(255, 255, 255, 0.1) 70%, 
+              rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.4), 
+              inset 10px 10px 30px rgba(255, 255, 255, 0.2),
+              0 0 25px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+  animation: float 6s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+/* Main bubbles */
+body::before {
+  width: 180px;
+  height: 180px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+body::after {
+  width: 250px;
+  height: 250px;
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+/* Additional smaller floating bubbles */
+.bubble:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  right: 25%;
+  animation-delay: 1s;
+}
+.bubble:nth-child(2) {
+  width: 130px;
+  height: 130px;
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 3s;
+}
+.bubble:nth-child(3) {
+  width: 90px;
+  height: 90px;
+  top: 60%;
+  right: 15%;
+  animation-delay: 4s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(40px) scale(1.05); }
+}
+
+body::before,
+body::after,
+.bubble {
+  pointer-events: none;
+  backdrop-filter: none;
+}
+
+@media (max-width: 768px) {
+  body::before,
+  body::after,
+  .bubble {
+    display: none;
+  }
+}
