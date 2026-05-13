@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const EMPLOYEE_S_API_BASE_URL = "http://localhost:8080/employees"
+const EMPLOYEE_S_API_BASE_URL = "https://emp-backend-nx93.onrender.com/employees"
 class EmployeeService{
     saveEmployee(employee){
         return axios.post(EMPLOYEE_S_API_BASE_URL, employee)
