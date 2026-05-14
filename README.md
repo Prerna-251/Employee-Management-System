@@ -51,8 +51,8 @@ project-root/
 ### 1. Clone the repository
 
 ```
-git remote add origin https://github.com/Prerna-251/Employee-Management-System.git
-cd employee-management-system
+git clone https://github.com/Prerna-251/Employee-Management-System.git
+cd Employee-Management-System
 ```
 
 ---
